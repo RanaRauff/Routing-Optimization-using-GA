@@ -28,13 +28,10 @@ def generate_path(sodist):
 		kk=0
 		i=sodist[0]
 		path.append(sodist[0])
-		while 1:
 			kk+=1
 			if kk==35: #to exit infinite loop
-				print("time out")
+				print("time out = ",path)
 				time_out = 1
-				break
-			if sodist[1] in path:
 				break
 			else:
 				if i in t_row:
@@ -105,7 +102,7 @@ def initialize():
 
 def show(population):
     for chromosome in pop:
-        print(chromosome,"chromosome")
+        print("chromosome = ",chromosome)
         print('')
 
 pop = initialize()
