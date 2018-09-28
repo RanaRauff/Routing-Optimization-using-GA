@@ -20,69 +20,71 @@ print(t_row,b_row,l_col,r_col)
 
 
 def generate_path(sodist):
-	path=[]
-	kk=0
-	# for i in 
-	i=sodist[0]
-	path.append(sodist[0])
-	while 1:
-		kk+=1
-		if kk==30: #to exit infinite loop
-			print("time out")
-			return -1
-			break
-		if sodist[1] in path:
-			break
-		else:
-			if i in t_row:
-				if i==1:
-					tt=random.choice([i+1,i+n])
-					if tt not in path:
-						path.append(tt)
-						i=tt
-				elif i==n:
-					tt=random.choice([i-1,i+n])
-					if tt not in path:
-						path.append(tt)
-						i=tt
-				else:
-					tt=random.choice([i+1,i-1,i+n])
-					if tt not in path:
-						path.append(tt)
-						i=tt
-			elif i in b_row:
-				if i==n*(n-1)+1:
-					tt=random.choice([i+1,i-n])
-					if tt not in path:
-						path.append(tt)
-						i=tt
-				elif i==n*n:
-					tt=random.choice([i-1,i-n])
-					if tt not in path:
-						path.append(tt)
-						i=tt
-				else:
-					tt=random.choice([i-1,i+1,i-n])
-					if tt not in path:
-						path.append(tt)
-						i=tt
-			elif i in l_col:
-				tt=random.choice([i+n,i-n,i+1])
-				if tt not in path:
-					path.append(tt)
-					i=tt
-			elif i in r_col:
-				tt=random.choice([i+n,i-n,i-1])
-				if tt not in path:
-					path.append(tt)
-					i=tt
+	
+	time_out=1
+	while time_out==1:	
+		time_out=0
+		path=[]
+		kk=0
+		i=sodist[0]
+		path.append(sodist[0])
+		while 1:
+			kk+=1
+			if kk==35: #to exit infinite loop
+				print("time out")
+				time_out = 1
+				break
+			if sodist[1] in path:
+				break
 			else:
-				tt=random.choice([i+1,i-1,i+n,i-n])
-				if tt not in path:
-					path.append(tt)
-					i=tt
-			# print(path)		
-	# print(path,"final")																					
+				if i in t_row:
+					if i==1:
+						tt=random.choice([i+1,i+n])
+						if tt not in path:
+							path.append(tt)
+							i=tt
+					elif i==n:
+						tt=random.choice([i-1,i+n])
+						if tt not in path:
+							path.append(tt)
+							i=tt
+					else:
+						tt=random.choice([i+1,i-1,i+n])
+						if tt not in path:
+							path.append(tt)
+							i=tt
+				elif i in b_row:
+					if i==n*(n-1)+1:
+						tt=random.choice([i+1,i-n])
+						if tt not in path:
+							path.append(tt)
+							i=tt
+					elif i==n*n:
+						tt=random.choice([i-1,i-n])
+						if tt not in path:
+							path.append(tt)
+							i=tt
+					else:
+						tt=random.choice([i-1,i+1,i-n])
+						if tt not in path:
+							path.append(tt)
+							i=tt
+				elif i in l_col:
+					tt=random.choice([i+n,i-n,i+1])
+					if tt not in path:
+						path.append(tt)
+						i=tt
+				elif i in r_col:
+					tt=random.choice([i+n,i-n,i-1])
+					if tt not in path:
+						path.append(tt)
+						i=tt
+				else:
+					tt=random.choice([i+1,i-1,i+n,i-n])
+					if tt not in path:
+						path.append(tt)
+						i=tt
+																								
 
 
 	return path
@@ -96,7 +98,8 @@ def initialize():
         for i in range(len(source)):
         	xx=generate_path(list(zip(source,destin))[i])
         	if xx!=-1:
-        		chromosome.append(xx)	
+        		chromosome.append(xx)
+
             
         population.append(chromosome)
     return population
