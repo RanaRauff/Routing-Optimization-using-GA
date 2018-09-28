@@ -96,9 +96,8 @@ def initialize():
     for _ in range(10):
         chromosome = []
         for i in range(len(source)):
-        	xx=generate_path(list(zip(source,destin))[i])
-        	if xx!=-1:
-        		chromosome.append(xx)
+        	
+        	chromosome.append(generate_path(list(zip(source,destin))[i]))
 
             
         population.append(chromosome)
