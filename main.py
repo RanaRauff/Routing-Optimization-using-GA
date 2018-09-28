@@ -1,7 +1,7 @@
 import random
 
 # Constant Parameters
-
+#make distination
 n = 4
 source = [1, 3, 5]
 t_row = []       # top row
