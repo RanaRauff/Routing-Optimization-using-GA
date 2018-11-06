@@ -30,7 +30,7 @@ def generate_path(sodist):
 		path.append(sodist[0])
 		while sodist[1] not in path:
 			kk+=1
-			if kk==35: #to exit infinite loop
+			if kk==6: #to exit infinite loop (max size a list can have)
 				print("time out = ",path)
 				time_out = 1
 				break
