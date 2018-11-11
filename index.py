@@ -1,6 +1,5 @@
 import random
-from fitness import FitnessFunction,visualize
-
+import fitness
 # Constant Parameters
 
 n = 4
@@ -59,9 +58,10 @@ def show(population):
         print(chromosome)
         print('')
 
+if __name__=="__main__":
+    population = initialize()
+    show(population)
 
-population = initialize()
-show(population)
-print()
-visualize(FitnessFunction(population[0]))
-# show(pop)
+    # print(population)
+    fitness.visualize(fitness.FitnessFunction(population[0]))
+    # show(pop)
