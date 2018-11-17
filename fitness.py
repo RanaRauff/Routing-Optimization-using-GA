@@ -13,6 +13,7 @@ def FitnessFunction(chromosome):
     for l in chromosome:
         for x in l:
             frequency[x-1] += 1
+    # print("fre",frequency)
     return frequency
 
 
